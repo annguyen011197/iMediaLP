@@ -1,6 +1,19 @@
 'use client';
 
-import { Group, BackgroundImage, Title, Container, SimpleGrid, Box, Flex, Stack, Grid, Image } from '@mantine/core'
+import {
+  Group,
+  BackgroundImage,
+  Title,
+  Container,
+  SimpleGrid,
+  Box,
+  Flex,
+  Stack,
+  Grid,
+  Image,
+  Paper,
+  Button,
+} from '@mantine/core';
 import { createStyles, rem } from '@mantine/styles';
 
 const useStyles = createStyles(() => ({
@@ -22,6 +35,10 @@ const useStyles = createStyles(() => ({
     width: '100%',
   },
   px5: {},
+  glowImage: {
+    boxShadow: '0px 0px 5px #fff',
+    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+  },
 }));
 
 const LogoName = () => {
@@ -47,27 +64,32 @@ const Main = () => {
         </Container>
       </Container>
 
-      <Container size='lg' px='xs' mt={20}>
-        <Grid columns={5} mih='60vh'>
-          <Grid.Col span={3}>
-            <Flex direction={'column'} h={'100%'} justify={'center'} gap={'md'}>
-              <Title order={1} className={classes.brandName}>
-                Trải nghiệm Tivi, Bóng đá, IPTV miễn phí - Giải trí trong lòng bàn tay!
-              </Title>
-              <Title order={3}>
-                Xem gần 200 kênh Truyền hình trong nước và quốc tế
-                <br/>
-                <br/>
-                Trực tiếp bóng đá Ngoại Hạng Anh, UEFA Champions League, LaLiga, Ligue 1, Bundesliga, V League,...
-              </Title>
-            </Flex>
-          </Grid.Col>
-          <Grid.Col span={2}>
-            <Flex direction={'column'} h={'100%'} justify={'center'}>
-              <Image src='/introduce.png' alt='image' mx='auto' />
-            </Flex>
-          </Grid.Col>
-        </Grid>
+      <Container size="lg" px="xs" mt={20}>
+        <Stack>
+          <Flex direction="column" h="100%" justify="center">
+            <Image src="/tv.png" alt="image" />
+          </Flex>
+          <Flex direction="column" h="100%" justify="center" gap="md">
+            <Title order={1} size={40} className={classes.brandName} align="center">
+              Trải nghiệm Tivi, Bóng đá, IPTV miễn phí <br /> Giải trí trong lòng bàn tay!
+            </Title>
+            <Title order={3} align="center">
+              Xem gần 200 kênh Truyền hình trong nước và quốc tế
+              <br />
+              <br />
+              Trực tiếp bóng đá Ngoại Hạng Anh, UEFA Champions League, LaLiga, Ligue 1, Bundesliga,
+              V League,...
+            </Title>
+          </Flex>
+          <Flex gap={20} justify="center">
+            <Button radius="md" size="xl" className={classes.glowImage}>
+              Tải phiên bản trên TV
+            </Button>
+            <Button radius="md" size="xl" className={classes.glowImage}>
+              Tải phiên bản trên điện thoại
+            </Button>
+          </Flex>
+        </Stack>
       </Container>
     </BackgroundImage>
   );
