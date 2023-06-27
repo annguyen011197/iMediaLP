@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import React, { ReactNode } from "react";
-import { MantineProvider } from "@mantine/core";
+import React, { ReactNode } from 'react';
+import { MantineProvider } from '@mantine/core';
 
 interface IProviders {
   children: ReactNode;
@@ -9,9 +9,13 @@ interface IProviders {
 
 const Providers = ({ children }: IProviders) => {
   return (
-    <MantineProvider withGlobalStyles withNormalizeCSS theme={{
-      colorScheme: 'dark'
-    }}>
+    <MantineProvider
+      withGlobalStyles
+      withNormalizeCSS
+      theme={{
+        colorScheme: 'dark',
+      }}
+    >
       {children}
     </MantineProvider>
   );
