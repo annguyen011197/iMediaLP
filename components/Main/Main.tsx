@@ -4,6 +4,7 @@ import { Title, Flex, Stack, Image, Button } from '@mantine/core';
 import { createStyles } from '@mantine/styles';
 import { IconDownload } from '@tabler/icons-react';
 import MainLayout from '../MainLayout/MainLayout';
+import { useRouter } from 'next/navigation';
 
 const useStyles = createStyles(() => ({
   wrapper: {
@@ -34,6 +35,7 @@ const useStyles = createStyles(() => ({
 
 const Main = () => {
   const { classes } = useStyles();
+  const router = useRouter();
   return (
     <MainLayout>
       <Stack>
@@ -58,6 +60,9 @@ const Main = () => {
             size="xl"
             className={classes.glowImage}
             rightIcon={<IconDownload size="2rem" stroke={1.5} />}
+            onClick={() => {
+              router.push('/release');
+            }}
           >
             Trải nghiệm ngay
           </Button>

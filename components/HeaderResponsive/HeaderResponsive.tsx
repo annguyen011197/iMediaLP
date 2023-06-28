@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { usePathname } from 'next/navigation';
 import {
   createStyles,
   Header,
@@ -12,6 +12,8 @@ import {
   Title,
 } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 const HEADER_HEIGHT = 80;
 
@@ -87,6 +89,9 @@ const useStyles = createStyles((theme) => ({
     fontWeight: 'bolder',
     fontFamily: 'Roboto',
   },
+  nextjsLink: {
+    textDecoration: 'none',
+  },
 }));
 
 interface HeaderResponsiveProps {
@@ -107,16 +112,15 @@ const LogoName = () => {
 
 export function HeaderResponsive({ links }: HeaderResponsiveProps) {
   const [opened, { toggle, close }] = useDisclosure(false);
-  const [active, setActive] = useState(links[0].link);
+  const currentPath = usePathname();
   const { classes, cx } = useStyles();
 
   const items = links.map((link) => (
     <a
       key={link.label}
       href={link.link}
-      className={cx(classes.link, { [classes.linkActive]: active === link.link })}
+      className={cx(classes.link, { [classes.linkActive]: currentPath === link.link })}
       onClick={() => {
-        setActive(link.link);
         close();
       }}
     >
@@ -127,7 +131,10 @@ export function HeaderResponsive({ links }: HeaderResponsiveProps) {
   return (
     <Header height={HEADER_HEIGHT} mb={120} className={classes.root}>
       <Container className={classes.header}>
-        <LogoName />
+        <Link href="/" className={classes.nextjsLink}>
+          <LogoName />
+        </Link>
+
         <Group spacing={12} className={classes.links}>
           {items}
         </Group>

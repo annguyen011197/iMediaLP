@@ -4,7 +4,7 @@ const links: { link: string; label: string }[] = [
     label: 'IPTV',
   },
   {
-    link: './release',
+    link: ' /release',
     label: 'Download',
   },
 ];
