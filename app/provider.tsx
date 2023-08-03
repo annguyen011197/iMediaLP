@@ -7,20 +7,18 @@ interface IProviders {
   children: ReactNode;
 }
 
-const Providers = ({ children }: IProviders) => {
-  return (
-    <>
-      <MantineProvider
-        withGlobalStyles
-        withNormalizeCSS
-        theme={{
-          colorScheme: 'dark',
-        }}
-      >
-        {children}
-      </MantineProvider>
-    </>
-  );
-};
+const Providers = ({ children }: IProviders) => (
+  <>
+    <MantineProvider
+      withGlobalStyles
+      withNormalizeCSS
+      theme={{
+        colorScheme: 'dark',
+      }}
+    >
+      {children}
+    </MantineProvider>
+  </>
+);
 
 export default Providers;
