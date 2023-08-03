@@ -20,6 +20,7 @@ import {
 import { IconDeviceMobile, IconDeviceTv, IconDownload } from '@tabler/icons-react';
 import Link from 'next/link';
 import MainLayout from '../MainLayout/MainLayout';
+import resources from '../../app/resource/resources.json';
 
 const useStyles = createStyles(() => ({
   button: {
@@ -93,52 +94,47 @@ function ReleaseCard({
   );
 }
 
-const releaseVersion = [
-  {
-    logo: <IconDeviceTv size="2rem" />,
-    title: 'Phiên bản Smart TV',
-    version: 'Version: abc.xyz',
-    descriptionGG: 'Phiên bản hỗ trợ xem truyền hình và radio phù hợp với các thiết bị smart TV',
-    linkGG:
-      'https://play.google.com/store/apps/details?id=com.kt.apps.media.xemtvhttps://play.google.com/store/apps/details?id=com.kt.apps.media.xemtv&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1',
-    descriptionAPK: 'Phiên bản nâng cao hỗ trợ xem bóng đá và IPTV',
-    linkAPK: '',
-  },
-  {
-    logo: <IconDeviceMobile size="2rem" />,
-    title: 'Phiên bản Điện thoại',
-    version: 'Version: abc.xyz',
-    descriptionGG:
-      'Phiên bản hỗ trợ xem truyền hình và radio phù hợp với các thiết bị Điện thoại, Tablet, Android Auto',
-    linkGG:
-      'https://play.google.com/store/apps/details?id=com.kt.apps.media.xemtvhttps://play.google.com/store/apps/details?id=com.kt.apps.media.xemtv&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1',
-    descriptionAPK: 'Phiên bản nâng cao hỗ trợ xem bóng đá và IPTV',
-    linkAPK: '',
-  },
-];
-
-export default function Release() {
+export function ReleaseList() {
   const cardList = useMemo(
     () =>
-      releaseVersion.map((e) => (
-        <ReleaseCard
-          logo={e.logo}
-          title={e.title}
-          version={e.version}
-          descriptionGG={e.descriptionGG}
-          linkGG={e.linkGG}
-          descrptionAPK={e.descriptionAPK}
-          linkAPK={e.linkAPK}
-        />
-      )),
+      resources.releaseVersion.map((e) => {
+        const logo =
+          e.type === 'tv' ? <IconDeviceTv size="2rem" /> : <IconDeviceMobile size="2rem" />;
+        return (
+          <ReleaseCard
+            logo={logo}
+            title={e.title}
+            version={e.version}
+            descriptionGG={e.descriptionGG}
+            linkGG={e.linkGG}
+            descrptionAPK={e.descriptionAPK}
+            linkAPK={e.linkAPK}
+          />
+        );
+      }),
     []
   );
+
+  return (
+    <SimpleGrid
+      cols={2}
+      breakpoints={[
+        { maxWidth: 'lg', cols: 2 },
+        { maxWidth: 'sm', cols: 1 },
+      ]}
+    >
+      {cardList}
+    </SimpleGrid>
+  );
+}
+
+export default function Release() {
   return (
     <MainLayout>
       <Container>
         <Stack>
           <Title>Các phiên bản</Title>
-          <SimpleGrid cols={2}>{cardList}</SimpleGrid>
+          <ReleaseList />
         </Stack>
       </Container>
     </MainLayout>

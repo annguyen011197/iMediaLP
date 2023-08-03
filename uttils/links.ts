@@ -1,6 +1,6 @@
 const links: { link: string; label: string }[] = [
   {
-    link: '',
+    link: '/iptv',
     label: 'IPTV',
   },
   {

@@ -9,15 +9,17 @@ interface IProviders {
 
 const Providers = ({ children }: IProviders) => {
   return (
-    <MantineProvider
-      withGlobalStyles
-      withNormalizeCSS
-      theme={{
-        colorScheme: 'dark',
-      }}
-    >
-      {children}
-    </MantineProvider>
+    <>
+      <MantineProvider
+        withGlobalStyles
+        withNormalizeCSS
+        theme={{
+          colorScheme: 'dark',
+        }}
+      >
+        {children}
+      </MantineProvider>
+    </>
   );
 };
 

@@ -14,13 +14,14 @@ import {
   Paper,
   Button,
   Text,
+  Center,
 } from '@mantine/core';
 import { createStyles, rem } from '@mantine/styles';
 import { ReactNode } from 'react';
+import Link from 'next/link';
 import { HeaderResponsive } from '../HeaderResponsive/HeaderResponsive';
 import links from '@/uttils/links';
-import { IconBrandFacebookFilled } from '@tabler/icons-react';
-import Link from 'next/link';
+import resources from '../../app/resource/resources.json';
 
 const useStyles = createStyles(() => ({
   wrapper: {
@@ -28,6 +29,7 @@ const useStyles = createStyles(() => ({
     minWidth: '100v',
     backgroundAttachment: 'fixed',
     paddingBottom: 120,
+    marginBottom: 240,
   },
   header: {
     height: 80,
@@ -67,16 +69,23 @@ const MainLayout = ({ children }: { children: ReactNode }) => {
             iMedia
           </Title>
           <Flex justify="center" gap={20} mt={20}>
-            <Link href="https://www.facebook.com/">
+            <Link href="http://fb.com/imediaapp">
               <Image
                 src="https://upload.wikimedia.org/wikipedia/en/0/04/Facebook_f_logo_%282021%29.svg"
                 width={40}
               />
             </Link>
-            <Link href="https://www.facebook.com/">
+            <Link href={resources.social.zalo.link}>
               <Image src="/zalo.svg" width={40} />
             </Link>
           </Flex>
+          <Center pt={20}>
+            <Link href={`mailto: ${resources.social.mail.link}`}>
+              <Title color="#000000" order={4}>
+                {`Liên hệ hợp tác: ${resources.social.mail.link}`}
+              </Title>
+            </Link>
+          </Center>
           <Flex justify="center" gap={20} mt={40}>
             <Text>Privacy</Text>
             <Text>Term</Text>
@@ -91,7 +100,6 @@ const MainLayout = ({ children }: { children: ReactNode }) => {
           {children}
         </Container>
       </BackgroundImage>
-      <Box w="100%" h={240} />
     </>
   );
 };
