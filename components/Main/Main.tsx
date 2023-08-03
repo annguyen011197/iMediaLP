@@ -39,7 +39,7 @@ const Main = () => {
     <MainLayout>
       <Stack>
         <Flex direction="column" h="100%" justify="center">
-          <Image src="/tv.png" alt="image" />
+          <Image src="./tv.png" alt="image" />
         </Flex>
         <Flex direction="column" h="100%" justify="center" gap="md">
           <Title order={1} size={40} className={classes.brandName} align="center">

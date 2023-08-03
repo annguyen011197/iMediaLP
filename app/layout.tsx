@@ -11,7 +11,7 @@ export default function RootLayout({ children }: { children: any }) {
   return (
     <html lang="en">
       <head>
-        <link rel="shortcut icon" href="/icon.png" />
+        <link rel="shortcut icon" href="./icon.png" />
       </head>
       <body>
         <Providers>{children}</Providers>

@@ -76,7 +76,7 @@ const MainLayout = ({ children }: { children: ReactNode }) => {
               />
             </Link>
             <Link href={resources.social.zalo.link}>
-              <Image src="/zalo.svg" width={40} />
+              <Image src="./zalo.svg" width={40} />
             </Link>
           </Flex>
           <Center pt={20}>
@@ -93,7 +93,7 @@ const MainLayout = ({ children }: { children: ReactNode }) => {
           </Flex>
         </Container>
       </Box>
-      <BackgroundImage src="/background.png" className={classes.wrapper}>
+      <BackgroundImage src="./background.png" className={classes.wrapper}>
         <HeaderResponsive links={links} />
 
         <Container size="lg" px="xs" pt={120}>

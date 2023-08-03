@@ -131,7 +131,7 @@ export function HeaderResponsive({ links }: HeaderResponsiveProps) {
   return (
     <Header height={HEADER_HEIGHT} mb={120} className={classes.root}>
       <Container className={classes.header}>
-        <Link href="./" className={classes.nextjsLink}>
+        <Link href="" className={classes.nextjsLink}>
           <LogoName />
         </Link>
 
