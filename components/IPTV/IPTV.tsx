@@ -65,7 +65,7 @@ export default function IPTV() {
                           window.open('xemtv://tv/dashboard');
                         }}
                       >
-                        <Image src="/imedia_outline.svg" width={px('1.2rem')} />
+                        <Image src="./imedia_outline.svg" width={px('1.2rem')} />
                       </Button>
                     </Group>
                   </Group>

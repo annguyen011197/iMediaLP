@@ -102,7 +102,7 @@ const LogoName = () => {
   const { classes } = useStyles();
   return (
     <Group>
-      <Image src="/icon.png" alt="logo" width={60} height={60} />
+      <Image src="./icon.png" alt="logo" width={60} height={60} />
       <Title order={1} className={classes.brandName}>
         iMedia
       </Title>
@@ -131,7 +131,7 @@ export function HeaderResponsive({ links }: HeaderResponsiveProps) {
   return (
     <Header height={HEADER_HEIGHT} mb={120} className={classes.root}>
       <Container className={classes.header}>
-        <Link href="/" className={classes.nextjsLink}>
+        <Link href="./" className={classes.nextjsLink}>
           <LogoName />
         </Link>
 
