@@ -15,7 +15,6 @@ import {
   px,
   Button,
   Affix,
-  Flex,
 } from '@mantine/core';
 import { IconCopy } from '@tabler/icons-react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
@@ -41,10 +40,8 @@ export default function IPTV() {
     () =>
       resources.iptv.map((e) => (
         <Card>
-          <Stack spacing={8}>
-            <Title order={2} weight="bold">
-              {e.title}
-            </Title>
+          <Stack>
+            <Title order={2}>{e.title}</Title>
 
             <List spacing={8}>
               {e.links.map((link) => (

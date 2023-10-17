@@ -1,8 +1,7 @@
 'use client';
 
-import { Title, Flex, Stack, Image, Button } from '@mantine/core';
+import { Title, Flex, Stack, Image } from '@mantine/core';
 import { createStyles } from '@mantine/styles';
-import { IconDownload } from '@tabler/icons-react';
 import MainLayout from '../MainLayout/MainLayout';
 import { ReleaseList } from '../Release/Release';
 
@@ -42,10 +41,10 @@ const Main = () => {
           <Image src="./tv.png" alt="image" />
         </Flex>
         <Flex direction="column" h="100%" justify="center" gap="md">
-          <Title order={1} size={40} className={classes.brandName} align="center">
+          <Title order={1} size={40} className={classes.brandName}>
             Trải nghiệm Tivi, Bóng đá, IPTV miễn phí <br /> Giải trí trong lòng bàn tay!
           </Title>
-          <Title order={3} align="center">
+          <Title order={3}>
             Xem gần 200 kênh Truyền hình trong nước và quốc tế
             <br />
             <br />

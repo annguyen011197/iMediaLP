@@ -1,24 +1,10 @@
 'use client';
 
 import React, { ReactNode, useMemo } from 'react';
-import {
-  Box,
-  Flex,
-  Card,
-  Container,
-  Grid,
-  SimpleGrid,
-  Stack,
-  Title,
-  createStyles,
-  rem,
-  Text,
-  Image,
-  em,
-  Button,
-} from '@mantine/core';
-import { IconDeviceMobile, IconDeviceTv, IconDownload } from '@tabler/icons-react';
+import { Card, Container, SimpleGrid, Stack, Title, Text, Image, Button } from '@mantine/core';
+import { IconDeviceMobile, IconDeviceTv } from '@tabler/icons-react';
 import Link from 'next/link';
+import { createStyles } from '@mantine/styles';
 import MainLayout from '../MainLayout/MainLayout';
 import resources from '../../app/resource/resources.json';
 
@@ -57,7 +43,6 @@ function ReleaseCard({
   descriptionGG,
   descrptionAPK,
   linkGG,
-  linkAPK,
 }: {
   logo: ReactNode;
   title: string;
@@ -70,23 +55,17 @@ function ReleaseCard({
   const { classes } = useStyles();
   return (
     <Card>
-      <Stack spacing={8}>
+      <Stack>
         {/* <IconDeviceTv size="2rem" /> */}
         {logo}
-        <Title order={2} weight="bold">
-          {title}
-        </Title>
+        <Title order={2}>{title}</Title>
         <Title order={4}>{version}</Title>
         <div className={classes.spacing} />
         <Text fz="md">{`- ${descriptionGG}`}</Text>
         <GooglePlayButton href={linkGG} />
         <div className={classes.spacing} />
         <Text fz="md">{`- ${descrptionAPK}`}</Text>
-        <Button
-          className={`${classes.glowImage} ${classes.button}`}
-          mt={20}
-          leftIcon={<IconDownload />}
-        >
+        <Button className={`${classes.glowImage} ${classes.button}`} mt={20}>
           Tải về APK
         </Button>
       </Stack>
@@ -115,17 +94,7 @@ export function ReleaseList() {
     []
   );
 
-  return (
-    <SimpleGrid
-      cols={2}
-      breakpoints={[
-        { maxWidth: 'lg', cols: 2 },
-        { maxWidth: 'sm', cols: 1 },
-      ]}
-    >
-      {cardList}
-    </SimpleGrid>
-  );
+  return <SimpleGrid cols={2}>{cardList}</SimpleGrid>;
 }
 
 export default function Release() {

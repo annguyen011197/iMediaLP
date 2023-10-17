@@ -1,22 +1,7 @@
 'use client';
 
-import {
-  Group,
-  BackgroundImage,
-  Title,
-  Container,
-  SimpleGrid,
-  Box,
-  Flex,
-  Stack,
-  Grid,
-  Image,
-  Paper,
-  Button,
-  Text,
-  Center,
-} from '@mantine/core';
-import { createStyles, rem } from '@mantine/styles';
+import { BackgroundImage, Title, Container, Box, Flex, Image, Text, Center } from '@mantine/core';
+import { createStyles } from '@mantine/styles';
 import { ReactNode } from 'react';
 import Link from 'next/link';
 import { HeaderResponsive } from '../HeaderResponsive/HeaderResponsive';
@@ -65,9 +50,7 @@ const MainLayout = ({ children }: { children: ReactNode }) => {
     <>
       <Box w="100vw" h={240} bg="white" pos="fixed" bottom={0} className={classes.footer}>
         <Container className={classes.footerContainer}>
-          <Title align="center" order={4} color="dark">
-            iMedia
-          </Title>
+          <Title order={4}>iMedia</Title>
           <Flex justify="center" gap={20} mt={20}>
             <Link href="http://fb.com/imediaapp">
               <Image
@@ -81,9 +64,7 @@ const MainLayout = ({ children }: { children: ReactNode }) => {
           </Flex>
           <Center pt={20}>
             <Link href={`mailto: ${resources.social.mail.link}`}>
-              <Title color="#000000" order={4}>
-                {`Liên hệ hợp tác: ${resources.social.mail.link}`}
-              </Title>
+              <Title order={4}>{`Liên hệ hợp tác: ${resources.social.mail.link}`}</Title>
             </Link>
           </Center>
           <Flex justify="center" gap={20} mt={40}>

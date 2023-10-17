@@ -1,19 +1,8 @@
 import { usePathname } from 'next/navigation';
-import {
-  createStyles,
-  Header,
-  Container,
-  Group,
-  Burger,
-  Paper,
-  Transition,
-  rem,
-  Image,
-  Title,
-} from '@mantine/core';
+import { Container, Group, Burger, Paper, Transition, rem, Image, Title } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { createStyles } from '@mantine/styles';
 
 const HEADER_HEIGHT = 80;
 
@@ -129,15 +118,13 @@ export function HeaderResponsive({ links }: HeaderResponsiveProps) {
   ));
 
   return (
-    <Header height={HEADER_HEIGHT} mb={120} className={classes.root}>
+    <header className={classes.root}>
       <Container className={classes.header}>
         <Link href="" className={classes.nextjsLink}>
           <LogoName />
         </Link>
 
-        <Group spacing={12} className={classes.links}>
-          {items}
-        </Group>
+        <Group className={classes.links}>{items}</Group>
 
         <Burger opened={opened} onClick={toggle} className={classes.burger} size="sm" />
 
@@ -149,6 +136,6 @@ export function HeaderResponsive({ links }: HeaderResponsiveProps) {
           )}
         </Transition>
       </Container>
-    </Header>
+    </header>
   );
 }
